@@ -1,62 +1,159 @@
 # How to Use This Template
 
-## Getting Started
+Here's how to get started and give your AI assistant persistent memory.
 
-1. **Create a new repository using this template**
-   - Click "Use this template" on GitHub, or
-   - Clone locally: `git clone <this-repo> your-project-name`
+## Quick Setup (5 minutes)
 
-2. **Fill in `/docs/PRD.md`**
-   - Describe your project's purpose and goals
-   - Define what's in scope and out of scope
+**Step 1: Create Your Repo**
 
-3. **Create your first task**
-   - Copy `.ai/AI_TASK_TEMPLATE.md`
-   - Fill in the task details
-   - This becomes your contract with the AI
+Click "Use this template" at the top of this GitHub page, or clone it locally:
+```bash
+git clone https://github.com/arcaneum/ai-doc-first-dev-template.git your-project-name
+cd your-project-name
+rm -rf .git
+git init
+```
 
-4. **Use your preferred AI coding tool**
-   - Copy the system prompt from `.ai/AI_SYSTEM_PROMPT.md`
-   - Paste it into Claude Code, Gemini, or your preferred AI assistant
-   - The AI will follow the documentation requirements
+**Step 2: Start With Your PRD**
 
-5. **Review before merging**
-   - Check that code changes are documented
-   - Verify that decisions are recorded
-   - Use the PR template checklist
+Open `docs/PRD.md` and answer three questions:
+- What are you building?
+- Why does it exist?
+- What problems does it solve?
 
-## Adapting This Framework
+This gives your AI the high-level context for every session.
 
-You are encouraged to adapt this framework to your needs:
-- Rename files to match your conventions
-- Adjust the documentation requirements
-- Modify the AI system prompt
-- Customize the enforcement rules
+**Step 3: Log Your First Decision**
 
-The core principle remains: **AI assists execution, documentation preserves intent.**
+Made a technology choice? Picked an approach? Open `docs/DECISIONS.md` and add an entry:
+```markdown
+## D-001 — Database Choice
 
-## Optional Integrations
+**Context**
+Need to store user data and handle relationships
 
-This template works well with:
-- **Notion** - for visual task tracking (status only, not source of truth)
+**Decision**
+PostgreSQL over MongoDB
+
+**Reasoning**
+- Need ACID compliance for financial data
+- Team already knows SQL
+- Strong ecosystem support
+```
+
+Your AI will reference this in future sessions.
+
+**Step 4: Use Your AI Assistant**
+
+Continue working as normal with Claude Code, Cursor, Copilot, or your preferred AI assistant. The AI naturally reads markdown files in your codebase.
+
+After each session, update `docs/PROGRESS.md` with what you built. That's it.
+
+## The Four Core Documents
+
+**📋 PRD.md - What You're Building**
+- Project purpose and goals
+- Problem you're solving
+- What's in scope (and what's not)
+
+Update this when project scope or goals change.
+
+**📝 DECISIONS.md - What You've Decided**
+- Architectural choices
+- Technology selections
+- Approach decisions
+
+Add an entry whenever you make a meaningful choice. Your AI reads this before making suggestions.
+
+**🏗️ ARCHITECTURE.md - How It's Structured**
+- System components
+- How pieces connect
+- Key patterns and conventions
+
+Update this when you add major components or change structure.
+
+**✅ PROGRESS.md - What You've Built**
+- Completed features
+- Current work in progress
+- What's next
+
+Update this after meaningful sessions. It gives your AI session-to-session continuity.
+
+## Making It Work For You
+
+**Do I need to document every tiny change?**
+No. Typo fixes, small tweaks, trivial updates don't need documentation. Only meaningful work.
+
+**What counts as "meaningful"?**
+- Implemented a feature
+- Made an architectural decision
+- Chose one approach over another
+- Built something your AI should remember
+
+**How detailed should entries be?**
+Brief but clear. A few sentences explaining what and why. You're not writing a novel.
+
+**Can I change the format?**
+Absolutely. This is a framework, not a mandate. Adapt it to your workflow. Rename files. Adjust the structure. Make it yours.
+
+The core principle is what matters: **documentation as persistent memory for your AI**.
+
+## Optional: AI System Prompt
+
+Want your AI to actively maintain these docs? Copy the system prompt from `.ai/AI_SYSTEM_PROMPT.md` and paste it into your AI assistant at the start of a session.
+
+This works especially well with Claude Code and Cursor, but any AI assistant that accepts custom instructions can use it.
+
+## Optional: Task Template
+
+Working on something specific? Use `.ai/AI_TASK_TEMPLATE.md` to create scoped work descriptions. This prevents your AI from wandering into unrelated changes.
+
+## Optional: Pull Request Checklist
+
+If you're working with a team, the `.github/pull_request_template.md` ensures documentation gets updated before merging.
+
+## Tools That Play Well With This
+
+This template works alongside (not instead of):
+- **Notion** - for visual project planning
 - **Linear** - for issue tracking
 - **GitHub Projects** - for kanban boards
 
-Keep these tools downstream of the repository. The repo is always the canonical source.
-
-## Getting Help
-
-- Read [AI_CONTRIBUTING.md](AI_CONTRIBUTING.md) for the full contract
-- Review the example entries in `/docs/PROGRESS.md` and `/docs/DECISIONS.md`
-- Check the task template in `.ai/AI_TASK_TEMPLATE.md`
+Keep these downstream of your repository. The repo is always the source of truth.
 
 ## Common Questions
 
-**Q: Do I need to update documentation for every single change?**
-A: No. Only for meaningful changes. Typo fixes and trivial updates don't require documentation entries.
+**Does this work without AI?**
+Yes. This is just good documentation practice. It helps human developers too.
 
-**Q: Can I use this without AI?**
-A: Yes! This framework also works well for human-only development. It simply enforces good documentation discipline.
+**Which AI assistants does this work with?**
+All of them. Claude Code, Cursor, GitHub Copilot, Gemini, or any LLM-based tool. It's just markdown files.
 
-**Q: What if I disagree with some of the rules?**
-A: Adapt them. This is a framework, not a mandate. Take what works for you.
+**What if my team thinks this is too much overhead?**
+Start small. Just DECISIONS.md and PROGRESS.md. Add the others if they prove useful. The framework scales to your needs.
+
+**Do I have to use all four documents?**
+No. Use what helps. If you only need DECISIONS.md to stop your AI from contradicting itself, that's fine.
+
+**Can I add more documents?**
+Sure. Some projects add TESTING.md, DEPLOYMENT.md, or TROUBLESHOOTING.md. Add what makes sense.
+
+## Getting Help
+
+- Review the example entries in `docs/PROGRESS.md` and `docs/DECISIONS.md`
+- Read `AI_CONTRIBUTING.md` for the complete framework
+- Check the task template in `.ai/AI_TASK_TEMPLATE.md`
+
+## What's Different Here
+
+Most AI development frameworks focus on task management. This one focuses on **context engineering** - giving your AI the persistent memory it needs to be genuinely useful across sessions.
+
+The immediate benefit isn't cleaner code or better architecture (though those are nice bonuses).
+
+It's **better AI sessions starting today**. Less time re-explaining. More time building.
+
+Your AI assistant becomes a collaborative partner instead of a goldfish.
+
+---
+
+Questions? Issues? Improvements? Open an issue or PR. This template gets better when people share what works (and what doesn't).
