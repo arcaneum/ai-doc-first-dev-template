@@ -1,0 +1,24 @@
+name: Docs Check
+
+on: [pull_request]
+
+jobs:
+  docs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Check if PROGRESS.md updated when code changes
+        run: |
+          # Check if any code files changed
+          if git diff origin/main...HEAD --name-only | grep -E '\.(js|ts|py|go|rs|java|cpp|c|rb|php)$'; then
+            # Check if PROGRESS.md was also updated
+            if ! git diff origin/main...HEAD --name-only | grep -q 'docs/PROGRESS.md'; then
+              echo "⚠️  Code changed but PROGRESS.md not updated"
+              echo "Consider adding an entry to docs/PROGRESS.md"
+              echo "If this is a trivial change, you can ignore this warning"
+              # Note: This is a warning, not a hard failure
+              # Remove 'exit 1' to make it advisory only
+            fi
+          fi
