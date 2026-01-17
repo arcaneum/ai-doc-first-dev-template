@@ -45,9 +45,11 @@ Your AI will reference this in future sessions.
 
 **Step 4: Use Your AI Assistant**
 
-Continue working as normal with Claude Code, Cursor, Copilot, or your preferred AI assistant. The AI naturally reads markdown files in your codebase.
+Continue working as normal with Claude Code, Cursor, Copilot, or your preferred AI assistant.
 
-After each session, update `docs/PROGRESS.md` with what you built. That's it.
+**IMPORTANT:** The AI maintains these documents, not you. As it builds features and makes decisions, it automatically updates PROGRESS.md, DECISIONS.md, and ARCHITECTURE.md. You review and approve what it writes.
+
+Give the AI the system prompt from `.ai/AI_SYSTEM_PROMPT.md` so it knows to maintain these docs as it works.
 
 ## The Four Core Documents
 
@@ -79,10 +81,37 @@ Update this when you add major components or change structure.
 
 Update this after meaningful sessions. It gives your AI session-to-session continuity.
 
+## Who Does What? (This Is Important)
+
+**What the AI does:**
+- Builds features when you give it tasks
+- Documents what it built in PROGRESS.md
+- Logs decisions it made in DECISIONS.md
+- Updates ARCHITECTURE.md when structure changes
+- Reads these docs at the start of each session
+- References past decisions when making suggestions
+
+**What you do:**
+- Give the AI tasks and direction
+- Review what the AI built AND what it documented
+- Approve or request changes to both code and docs
+- Guide the overall project direction
+- Make final decisions on architecture and approach
+
+**The workflow:**
+1. You: "Build a user dashboard with activity feed"
+2. AI: *builds the feature*
+3. AI: *updates PROGRESS.md*: "Implemented user dashboard in `pages/Dashboard.tsx`"
+4. AI: *updates DECISIONS.md*: "D-015 — Used React Query for activity feed data fetching"
+5. You: *review code and documentation, approve if good*
+6. Next session: AI reads those docs, knows dashboard exists, knows you're using React Query
+
+This is the AI creating its own persistent memory. You're not doing the documentation work - you're reviewing it.
+
 ## Making It Work For You
 
 **Do I need to document every tiny change?**
-No. Typo fixes, small tweaks, trivial updates don't need documentation. Only meaningful work.
+No. The AI doesn't document typo fixes, small tweaks, or trivial updates. Only meaningful work.
 
 **What counts as "meaningful"?**
 - Implemented a feature

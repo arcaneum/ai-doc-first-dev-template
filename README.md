@@ -20,25 +20,27 @@ Four simple markdown files that give your AI continuity between sessions:
 
 ## How It Works
 
-Before:
+**Here's the key:** The AI maintains these documents as it works. You don't manually write them.
+
+**During a session:**
 ```
-You: "How should we handle auth?"
-AI: "I recommend Passport.js with sessions..."
-You: "No, we decided on JWT last week. Remember?"
-AI: *doesn't remember*
+You: "Build user registration with email validation"
+AI: *builds the feature*
+AI: *updates PROGRESS.md*: "Implemented user registration in components/RegisterForm.tsx"
+AI: *updates DECISIONS.md*: "D-012 — Chose Zod for validation (integrates with React Hook Form)"
 ```
 
-After:
+**Next session:**
 ```
-You: "How should we handle auth?"
-AI: "I see from DECISIONS.md we chose JWT (logged 2025-12-28)
-     because the mobile app needs stateless auth. From PROGRESS.md,
-     we've implemented token generation in auth/jwt.service.ts.
-
-     Should I help with refresh token rotation?"
+You: "Add password validation to registration"
+AI: *reads PROGRESS.md and DECISIONS.md first*
+AI: "I can see the registration form uses Zod for validation.
+     I'll add password rules to the existing schema."
 ```
 
-Same question. Completely different outcome.
+The AI writes. The AI reads. You review and approve.
+
+This is the AI creating its own persistent memory system.
 
 ## Who This Is For
 
@@ -56,11 +58,16 @@ Experience level doesn't matter. If you're frustrated with AI amnesia, this help
 **1. Use this template**
 Click "Use this template" above or clone this repo.
 
-**2. Fill in the four docs**
-Start with `docs/PRD.md` (what you're building), then log decisions and progress as you work.
+**2. Add the AI system prompt (optional but recommended)**
+Copy `.ai/AI_SYSTEM_PROMPT.md` and paste it into your AI assistant. This tells the AI to maintain the docs as it works.
 
-**3. Let your AI read them**
-Your AI assistant naturally reads markdown files in your codebase. That's it.
+**3. Start building**
+Give your AI tasks. It will automatically update the four docs as it builds.
+
+**4. Review**
+Check what the AI built AND what it documented. Both should be accurate.
+
+That's it. The AI maintains its own memory. You guide and review.
 
 See [USE_THIS_TEMPLATE.md](USE_THIS_TEMPLATE.md) for detailed setup instructions.
 
