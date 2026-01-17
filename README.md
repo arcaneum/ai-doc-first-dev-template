@@ -58,16 +58,37 @@ Experience level doesn't matter. If you're frustrated with AI amnesia, this help
 **1. Use this template**
 Click "Use this template" above or clone this repo.
 
-**2. Add the AI system prompt (optional but recommended)**
-Copy `.ai/AI_SYSTEM_PROMPT.md` and paste it into your AI assistant. This tells the AI to maintain the docs as it works.
+**2. Choose your setup method**
+
+**Option A: Claude Code Skill (Recommended for Claude Code users)**
+
+Install the `ai-doc-first-framework` skill:
+
+1. Copy the `SKILL.md` file from this repo's `.ai/` folder
+2. Place it in `~/.claude/skills/ai-doc-first-framework/SKILL.md`
+3. Start Claude Code in your project
+
+The skill automatically:
+- Detects the framework structure
+- Reads docs at session start
+- Maintains docs as it works
+- No manual prompts needed
+
+**Option B: Initialization Prompt (For any AI assistant)**
+
+For Cursor, Copilot, Gemini, or other AI assistants:
+
+1. Copy `.ai/INITIALIZATION_PROMPT.md`
+2. Paste it into your AI assistant at session start
+3. The AI will maintain docs as it works
 
 **3. Start building**
-Give your AI tasks. It will automatically update the four docs as it builds.
+Give your AI tasks. It will automatically maintain the four docs.
 
 **4. Review**
-Check what the AI built AND what it documented. Both should be accurate.
+Check what the AI built AND what it documented.
 
-That's it. The AI maintains its own memory. You guide and review.
+That's it. The AI creates its own persistent memory.
 
 See [USE_THIS_TEMPLATE.md](USE_THIS_TEMPLATE.md) for detailed setup instructions.
 

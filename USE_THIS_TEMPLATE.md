@@ -2,9 +2,7 @@
 
 Here's how to get started and give your AI assistant persistent memory.
 
-## Quick Setup (5 minutes)
-
-**Step 1: Create Your Repo**
+## Step 1: Create Your Repository
 
 Click "Use this template" at the top of this GitHub page, or clone it locally:
 ```bash
@@ -14,42 +12,117 @@ rm -rf .git
 git init
 ```
 
-**Step 2: Start With Your PRD**
+## Step 2: Choose Your Setup Method
 
-Open `docs/PRD.md` and answer three questions:
+You have two options depending on which AI assistant you use:
+
+### Option A: Claude Code Skill (Recommended for Claude Code)
+
+**What is this?**
+A Claude Code skill that automatically enables the framework behaviour. No manual prompts needed.
+
+**Installation:**
+
+1. **Create the skill directory:**
+```bash
+mkdir -p ~/.claude/skills/ai-doc-first-framework
+```
+
+2. **Copy the skill file:**
+```bash
+cp .ai/SKILL.md ~/.claude/skills/ai-doc-first-framework/SKILL.md
+```
+
+3. **Restart Claude Code** (if already running)
+
+**That's it!** The skill will automatically:
+- Detect when you're in a repo with this framework
+- Read `PROGRESS.md` and `DECISIONS.md` at session start
+- Maintain docs as it works
+- Reference past decisions before suggesting changes
+
+**How to verify it's working:**
+Start Claude Code in your project and ask: "What's the current project state?"
+The AI should read the docs and summarize what it found.
+
+### Option B: Initialization Prompt (For any AI assistant)
+
+**What is this?**
+A prompt you paste into your AI assistant that teaches it the framework.
+
+**Works with:** Cursor, GitHub Copilot, Gemini, any AI coding assistant
+
+**Installation:**
+
+1. **Open** `.ai/INITIALIZATION_PROMPT.md` in this repo
+
+2. **Copy the entire contents**
+
+3. **Paste it into your AI assistant** at the start of your first session
+
+**Example for Cursor:**
+- Open Cursor
+- Open a new chat
+- Paste the initialization prompt
+- Start working
+
+**Example for Copilot Chat:**
+- Open VS Code
+- Open GitHub Copilot Chat
+- Paste the initialization prompt
+- Start working
+
+**How to verify it's working:**
+Ask your AI: "What's the current project state?"
+It should read the docs and summarize what it found.
+
+## Step 3: Initialize Your Project
+
+**Start with PRD.md**
+
+Open `docs/PRD.md` and answer (or ask your AI to help you answer):
 - What are you building?
 - Why does it exist?
 - What problems does it solve?
+- Who is it for?
 
 This gives your AI the high-level context for every session.
 
-**Step 3: Log Your First Decision**
-
-Made a technology choice? Picked an approach? Open `docs/DECISIONS.md` and add an entry:
-```markdown
-## D-001 — Database Choice
-
-**Context**
-Need to store user data and handle relationships
-
-**Decision**
-PostgreSQL over MongoDB
-
-**Reasoning**
-- Need ACID compliance for financial data
-- Team already knows SQL
-- Strong ecosystem support
+**Your AI can help with this:**
+```
+You: "Help me fill in the PRD for a SaaS project management tool"
+AI: [Asks clarifying questions and fills in PRD.md]
 ```
 
-Your AI will reference this in future sessions.
+## Step 4: Start Building
 
-**Step 4: Use Your AI Assistant**
+**IMPORTANT:** The AI maintains these documents, not you.
 
-Continue working as normal with Claude Code, Cursor, Copilot, or your preferred AI assistant.
+As it builds features and makes decisions, it automatically updates:
+- `PROGRESS.md` - What it just built
+- `DECISIONS.md` - Choices it made and why
+- `ARCHITECTURE.md` - If structure changed
 
-**IMPORTANT:** The AI maintains these documents, not you. As it builds features and makes decisions, it automatically updates PROGRESS.md, DECISIONS.md, and ARCHITECTURE.md. You review and approve what it writes.
+**Your workflow:**
 
-Give the AI the system prompt from `.ai/AI_SYSTEM_PROMPT.md` so it knows to maintain these docs as it works.
+1. **Give the AI a task:**
+   "Build a user registration form with email validation"
+
+2. **AI builds and documents:**
+   - Writes the code
+   - Updates `PROGRESS.md`: "Implemented registration in components/RegisterForm.tsx"
+   - Updates `DECISIONS.md`: "D-012 — Chose Zod for validation"
+
+3. **You review:**
+   - Check the code
+   - Check the documentation
+   - Approve or request changes
+
+4. **Next session:**
+   - AI reads the docs first
+   - Knows what's built
+   - Knows what was decided
+   - Builds on previous work
 
 ## The Four Core Documents
 
