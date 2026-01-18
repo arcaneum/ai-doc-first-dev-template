@@ -1,6 +1,8 @@
-# Initialization Prompt - AI Documentation-First Framework
+# Initialisation Prompt - AI Documentation-First Framework
 
-**Copy this prompt and paste it into your AI assistant at the start of your first session.**
+**Reference this document at the start of each session using your AI assistant's file mention feature (e.g., `@INITIALIZATION_PROMPT.md` in Cursor, Copilot, or Gemini). This immediately provides full context without copying and pasting.**
+
+**For Claude Code users:** The `ai-doc-first-framework` skill handles this automatically—no manual setup needed.
 
 ---
 
@@ -147,7 +149,7 @@ If this is a new project:
    - `docs/PROGRESS.md` (what's built)
 
 4. **Confirm you're ready:**
-   "Framework initialized. I'll maintain these docs as we work.
+   "Framework initialised. I'll maintain these docs as we work.
    You review and approve. Ready to start building."
 
 ## Key Principles

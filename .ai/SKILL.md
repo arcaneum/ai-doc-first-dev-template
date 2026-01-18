@@ -15,7 +15,7 @@ This skill automatically activates when working in a repository that contains:
 - `docs/ARCHITECTURE.md` - How the system is structured
 - `docs/PRD.md` - What you're building and why
 
-If these files don't exist yet, you can help the user initialize the framework.
+If these files don't exist yet, you can help the user initialise the framework.
 
 ## Core Behaviour: Context Engineering
 
@@ -25,7 +25,7 @@ If these files don't exist yet, you can help the user initialize the framework.
 3. **Maintain documentation as you work** - Update docs automatically when you build features or make decisions
 4. **Stay consistent** - Never contradict documented decisions unless explicitly asked to reconsider
 
-## Initialization (First-Time Setup)
+## Initialisation (First-Time Setup)
 
 When a user clones the ai-doc-first-framework template or asks to set up the framework:
 
@@ -61,7 +61,7 @@ If the repo already has code:
 ### Step 4: Confirm Framework Active
 
 Let the user know:
-- The framework is initialized
+- The framework is initialised
 - You'll maintain these docs as you work
 - They should review what you document
 - Future sessions will build on this context

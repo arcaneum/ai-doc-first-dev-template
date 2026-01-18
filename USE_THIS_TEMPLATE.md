@@ -43,40 +43,43 @@ cp .ai/SKILL.md ~/.claude/skills/ai-doc-first-framework/SKILL.md
 
 **How to verify it's working:**
 Start Claude Code in your project and ask: "What's the current project state?"
-The AI should read the docs and summarize what it found.
+The AI should read the docs and summarise what it found.
 
-### Option B: Initialization Prompt (For any AI assistant)
+### Option B: Initialisation Prompt (For any AI assistant)
 
 **What is this?**
-A prompt you paste into your AI assistant that teaches it the framework.
+A reference document you mention to your AI assistant at the start of each session to provide full context.
 
 **Works with:** Cursor, GitHub Copilot, Gemini, any AI coding assistant
 
-**Installation:**
+**Setup:**
 
-1. **Open** `.ai/INITIALIZATION_PROMPT.md` in this repo
+1. **Clone the template** into your project
 
-2. **Copy the entire contents**
-
-3. **Paste it into your AI assistant** at the start of your first session
+2. **At the start of each session**, reference `.ai/INITIALIZATION_PROMPT.md` using your AI's file mention feature
 
 **Example for Cursor:**
 - Open Cursor
 - Open a new chat
-- Paste the initialization prompt
+- Type: `@INITIALIZATION_PROMPT.md` (or use the file picker to select it)
 - Start working
 
 **Example for Copilot Chat:**
 - Open VS Code
 - Open GitHub Copilot Chat
-- Paste the initialization prompt
+- Type: `@INITIALIZATION_PROMPT.md` (or use `#file` to reference it)
+- Start working
+
+**Example for Claude (via claude.ai):**
+- Upload the project
+- At session start, type: `@INITIALIZATION_PROMPT.md`
 - Start working
 
 **How to verify it's working:**
 Ask your AI: "What's the current project state?"
-It should read the docs and summarize what it found.
+It should read the docs and summarise what it found.
 
-## Step 3: Initialize Your Project
+## Step 3: Initialise Your Project
 
 **Start with PRD.md**
 
@@ -202,7 +205,7 @@ The core principle is what matters: **documentation as persistent memory for you
 
 ## Optional: AI System Prompt
 
-Want your AI to actively maintain these docs? Copy the system prompt from `.ai/AI_SYSTEM_PROMPT.md` and paste it into your AI assistant at the start of a session.
+Want your AI to actively maintain these docs? Reference `.ai/AI_SYSTEM_PROMPT.md` using your AI assistant's file mention feature (e.g., `@AI_SYSTEM_PROMPT.md`) at the start of a session.
 
 This works especially well with Claude Code and Cursor, but any AI assistant that accepts custom instructions can use it.
 

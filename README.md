@@ -64,9 +64,12 @@ Click "Use this template" above or clone this repo.
 
 Install the `ai-doc-first-framework` skill:
 
-1. Copy the `SKILL.md` file from this repo's `.ai/` folder
-2. Place it in `~/.claude/skills/ai-doc-first-framework/SKILL.md`
-3. Start Claude Code in your project
+```bash
+mkdir -p ~/.claude/skills/ai-doc-first-framework
+cp .ai/SKILL.md ~/.claude/skills/ai-doc-first-framework/SKILL.md
+```
+
+Then start Claude Code in your project.
 
 The skill automatically:
 - Detects the framework structure
@@ -74,13 +77,12 @@ The skill automatically:
 - Maintains docs as it works
 - No manual prompts needed
 
-**Option B: Initialization Prompt (For any AI assistant)**
+**Option B: Initialisation Prompt (For any AI assistant)**
 
 For Cursor, Copilot, Gemini, or other AI assistants:
 
-1. Copy `.ai/INITIALIZATION_PROMPT.md`
-2. Paste it into your AI assistant at session start
-3. The AI will maintain docs as it works
+1. At the start of each session, reference `.ai/INITIALIZATION_PROMPT.md` using your AI's file mention feature (e.g., `@INITIALIZATION_PROMPT.md`)
+2. The AI will maintain docs as it works
 
 **3. Start building**
 Give your AI tasks. It will automatically maintain the four docs.
